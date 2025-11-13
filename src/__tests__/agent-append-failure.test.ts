@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+
 import { Agent } from "../runtime/agent.js";
 import { InMemoryMemory } from "../memory/in-memory.js";
 import { ToolRegistry } from "../tools/registry.js";
@@ -16,8 +17,8 @@ describe("Agent handles memory.append failure during history write", () => {
     });
 
     const agent = new Agent({ memory, tools });
-    const res = await agent.run({ 
-      goal: "two-steps", 
+    const res = await agent.run({
+      goal: "two-steps",
       input: { text: "hi" },
       planner: async () => ({ steps: [{ tool: "ok", input: {} }] })
     });
