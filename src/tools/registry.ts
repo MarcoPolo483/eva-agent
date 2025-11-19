@@ -14,9 +14,11 @@ export class ToolRegistry implements ToolInvoker {
     return this;
   }
 
-  has(name: string) { return this.tools.has(name); }
+  has(name: string) {
+    return this.tools.has(name);
+  }
 
-  async call(name: string, input?: Json, ctxOverride?: Partial<AgentContext>): Promise<ReturnType<Tool["invoke"]>> {
+  async call(name: string, input?: Json, ctxOverride?: Partial<AgentContext>) {
     const tool = this.tools.get(name);
     if (!tool) throw new Error(`Tool not found: ${name}`);
 
@@ -26,7 +28,7 @@ export class ToolRegistry implements ToolInvoker {
     const ctx: AgentContext = {
       memory: (ctxOverride as any)?.memory!,
       tools: this,
-      signal: ctxOverride?.signal
+      signal: ctxOverride?.signal,
     };
 
     return tool.invoke(input, ctx);

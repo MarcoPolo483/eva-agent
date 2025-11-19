@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+
 import { TokenBudget } from "../budget/tokenBudget.js";
 
 describe("TokenBudget additional coverage", () => {

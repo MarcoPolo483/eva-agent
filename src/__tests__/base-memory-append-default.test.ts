@@ -1,12 +1,19 @@
 import { describe, it, expect } from "vitest";
+
 import { BaseMemory } from "../memory/memory.js";
 import type { Json } from "../types.js";
 
 class TestMemory extends BaseMemory {
   private store = new Map<string, Json>();
-  async put(key: string, value: Json) { this.store.set(key, value); }
-  async get(key: string) { return this.store.get(key); }
-  async keys() { return Array.from(this.store.keys()); }
+  async put(key: string, value: Json) {
+    this.store.set(key, value);
+  }
+  async get(key: string) {
+    return this.store.get(key);
+  }
+  async keys() {
+    return Array.from(this.store.keys());
+  }
   // Note: no append override -> uses BaseMemory.append path
 }
 

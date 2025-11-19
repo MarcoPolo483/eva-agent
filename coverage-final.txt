@@ -1,0 +1,52 @@
+
+> eva-agent@0.1.0 test
+> vitest run --coverage --reporter=verbose
+
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/Users/marco/Documents/_AI Dev/Repos/eva-agent[39m
+      [2mCoverage enabled with [22m[33mv8[39m
+
+ [32mΓ£ô[39m src/__tests__/planner-fallback.test.ts[2m > [22msimplePlanner fallback path[2m > [22mshould return a single echo step when goal has no structured steps
+ [32mΓ£ô[39m src/__tests__/planner-fallback.test.ts[2m > [22msimplePlanner fallback path[2m > [22mshould return a single echo step when goal input is undefined
+ [32mΓ£ô[39m src/__tests__/planner-fallback.test.ts[2m > [22msimplePlanner fallback path[2m > [22mshould return a single echo step when goal input is a string
+ [32mΓ£ô[39m src/__tests__/base-memory-append-default.test.ts[2m > [22mBaseMemory.append default implementation[2m > [22minitializes new array when key is undefined
+ [32mΓ£ô[39m src/__tests__/base-memory-append-default.test.ts[2m > [22mBaseMemory.append default implementation[2m > [22mthrows when existing value at key is not an array
+ [32mΓ£ô[39m src/__tests__/agent-no-append-support.test.ts[2m > [22mAgent with memory lacking append()[2m > [22mruns successfully and skips history append
+ [32mΓ£ô[39m src/__tests__/agent-append-failure.test.ts[2m > [22mAgent handles memory.append failure during history write[2m > [22mreturns ok:false when append throws (history not an array)
+ [32mΓ£ô[39m src/__tests__/registry-no-estimate.test.ts[2m > [22mToolRegistry with no estimateTokens[2m > [22minvokes tool successfully and does not consume budget (0 tokens)
+ [32mΓ£ô[39m src/__tests__/registry-no-estimate.test.ts[2m > [22mToolRegistry with no estimateTokens[2m > [22mhas() correctly reports presence/absence of tools
+ [32mΓ£ô[39m src/__tests__/agent-nonerror-throw.test.ts[2m > [22mAgent catch path for non-Error throws[2m > [22mwraps non-Error thrown by a tool into Error and returns ok:false
+ [32mΓ£ô[39m src/__tests__/registry.test.ts[2m > [22mToolRegistry[2m > [22mregisters and calls a tool
+ [32mΓ£ô[39m src/__tests__/registry.test.ts[2m > [22mToolRegistry[2m > [22mthrows on unknown tool
+ [32mΓ£ô[39m src/__tests__/budget-exceed.test.ts[2m > [22mBudget exceed[2m > [22mfails when token budget is exceeded
+ [32mΓ£ô[39m src/__tests__/registry-ctx-pass.test.ts[2m > [22mToolRegistry passes ctx (memory, tools, signal) to tool[2m > [22mtool can use ctx.memory and ctx.tools
+ [32mΓ£ô[39m src/__tests__/agent-success.test.ts[2m > [22mAgent success[2m > [22mruns a single tool and appends to history
+ [32mΓ£ô[39m src/__tests__/registry-no-budget-high-cost.test.ts[2m > [22mToolRegistry without budget permits high token estimate[2m > [22msucceeds when no budget is configured even with high estimateTokens
+ [32mΓ£ô[39m src/__tests__/tokenBudget-more.test.ts[2m > [22mTokenBudget additional coverage[2m > [22mallows exact limit then blocks further spend
+ [32mΓ£ô[39m src/__tests__/tokenBudget-more.test.ts[2m > [22mTokenBudget additional coverage[2m > [22mreset restores full limit
+ [32mΓ£ô[39m src/__tests__/tokenBudget-more.test.ts[2m > [22mTokenBudget additional coverage[2m > [22mthrows on negative spend
+ [31m├ù[39m src/__tests__/memory-keys-default.test.ts[2m > [22mBaseMemory keys method[2m > [22mshould return empty array for keys method
+[31m   ΓåÆ InMemory is not a constructor[39m
+ [32mΓ£ô[39m src/__tests__/registry-no-ctxoverride.test.ts[2m > [22mToolRegistry.call without ctxOverride[2m > [22minvokes tool that does not rely on ctx.memory
+ [32mΓ£ô[39m src/__tests__/memory.test.ts[2m > [22mInMemoryMemory[2m > [22mput/get/append
+ [32mΓ£ô[39m src/__tests__/memory-keys.test.ts[2m > [22mInMemoryMemory keys()[2m > [22mlists keys after put operations
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Failed Tests 1 ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+ FAIL  src/__tests__/memory-keys-default.test.ts > BaseMemory keys method > should return empty array for keys method
+TypeError: InMemory is not a constructor
+ Γ¥» src/__tests__/memory-keys-default.test.ts:6:20
+      4| describe("BaseMemory keys method", () => {
+      5|   it("should return empty array for keys method", async () => {
+      6|     const memory = new InMemory();
+       |                    ^
+      7|     
+      8|     // Put some values
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[1/1]ΓÄ»
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m15 passed[39m[22m[90m (16)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m22 passed[39m[22m[90m (23)[39m
+[2m   Start at [22m 12:47:59
+[2m   Duration [22m 2.43s[2m (transform 488ms, setup 0ms, collect 1.59s, tests 95ms, environment 5ms, prepare 8.42s)[22m
+

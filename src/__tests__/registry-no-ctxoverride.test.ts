@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+
 import { ToolRegistry } from "../tools/registry.js";
 
 describe("ToolRegistry.call without ctxOverride", () => {
@@ -6,7 +7,7 @@ describe("ToolRegistry.call without ctxOverride", () => {
     const reg = new ToolRegistry(10);
     reg.register({
       name: "no-ctx",
-      invoke: async () => ({ ok: true, value: { ok: true } })
+      invoke: async () => ({ ok: true, value: { ok: true } }),
     });
     // No ctxOverride passed here – exercises the branch that builds ctx with possibly undefined memory
     const res = await reg.call("no-ctx");

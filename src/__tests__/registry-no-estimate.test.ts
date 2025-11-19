@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+
 import { ToolRegistry } from "../tools/registry.js";
 import { InMemoryMemory } from "../memory/in-memory.js";
 
@@ -8,7 +9,7 @@ describe("ToolRegistry with no estimateTokens", () => {
     reg.register({
       name: "no-estimate",
       // no estimateTokens present
-      invoke: async (i) => ({ ok: true, value: i ?? null })
+      invoke: async (i) => ({ ok: true, value: i ?? null }),
     });
 
     const res = await reg.call("no-estimate", { a: 1 }, { memory: new InMemoryMemory() } as any);
